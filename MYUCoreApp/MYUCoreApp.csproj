@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MYUCoreApp.Aplication\MYUCoreApp.Aplication.csproj" />
+    <ProjectReference Include="..\MYUCoreApp.Data.EF\MYUCoreApp.Data.EF.csproj" />
+    <ProjectReference Include="..\MYUCoreApp.Data\MYUCoreApp.Data.csproj" />
+    <ProjectReference Include="..\MYUCoreApp.Infrastructure\MYUCoreApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\MYUCoreApp.Utilities\MYUCoreApp.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
