@@ -1,4 +1,4 @@
-﻿using MYUCoreApp.Infrastructure.Enums;
+﻿using MYUCoreApp.Data.Enums;
 using MYUCoreApp.Infrastructure.Sharekernel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

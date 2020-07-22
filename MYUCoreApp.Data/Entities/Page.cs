@@ -1,5 +1,5 @@
-﻿using MYUCoreApp.Infrastructure.Enums;
-using MYUCoreApp.Infrastructure.Interfaces;
+﻿using MYUCoreApp.Data.Enums;
+using MYUCoreApp.Data.Interfaces;
 using MYUCoreApp.Infrastructure.Sharekernel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

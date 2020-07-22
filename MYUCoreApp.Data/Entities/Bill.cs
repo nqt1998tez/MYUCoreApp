@@ -1,6 +1,5 @@
 ﻿using MYUCoreApp.Data.Enums;
-using MYUCoreApp.Infrastructure.Enums;
-using MYUCoreApp.Infrastructure.Interfaces;
+using MYUCoreApp.Data.Interfaces;
 using MYUCoreApp.Infrastructure.Sharekernel;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using MYUCoreApp.Infrastructure.Enums;
-using MYUCoreApp.Infrastructure.Interfaces;
+using MYUCoreApp.Data.Enums;
+using MYUCoreApp.Data.Interfaces;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
