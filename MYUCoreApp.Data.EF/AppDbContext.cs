@@ -44,9 +44,6 @@ namespace MYUCoreApp.Data.EF
         public DbSet<Tag> Tags { get; set; }
         public DbSet<WholePrice> WholePrices { get; set; }
 
-
-
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             #region Identity Config
