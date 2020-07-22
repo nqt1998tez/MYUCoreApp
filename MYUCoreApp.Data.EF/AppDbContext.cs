@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using MYUCoreApp.Data.EF.Configurations;
 using MYUCoreApp.Data.EF.Extensions;
+using MYUCoreApp.Data.Interfaces;
 using System;
 using System.Linq;
 using TeduCoreApp.Data.Entities;
