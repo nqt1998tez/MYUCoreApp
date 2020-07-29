@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     [Table("SystemConfigs")]
     public class SystemConfig : DomainEntity<string>, ISwitchable

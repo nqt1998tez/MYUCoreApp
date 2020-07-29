@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     [Table("Footers")]
     public class Footer : DomainEntity<string>

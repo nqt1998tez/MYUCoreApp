@@ -1,7 +1,7 @@
 ﻿using MYUCoreApp.Infrastructure.Sharekernel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     [Table("BlogTags")]
     public class BlogTag : DomainEntity<int>

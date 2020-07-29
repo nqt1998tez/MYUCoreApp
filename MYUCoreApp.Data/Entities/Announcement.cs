@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     [Table("Announcements")]
     public class Announcement : DomainEntity<string>, ISwitchable, IDateTracking

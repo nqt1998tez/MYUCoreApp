@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     [Table("Advertistments")]
     public class Advertistment : DomainEntity<int>, ISwitchable, ISortable

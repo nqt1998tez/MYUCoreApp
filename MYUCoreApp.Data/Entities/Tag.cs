@@ -1,7 +1,7 @@
 ﻿using MYUCoreApp.Infrastructure.Sharekernel;
 using System.ComponentModel.DataAnnotations;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     public class Tag : DomainEntity<string>
     {

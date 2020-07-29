@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TeduCoreApp.Data.Entities;
+using MYUCoreApp.Data.Entities;
 using static MYUCoreApp.Data.EF.Extensions.ModelBuilderExtensions;
 
 namespace MYUCoreApp.Data.EF.Configurations

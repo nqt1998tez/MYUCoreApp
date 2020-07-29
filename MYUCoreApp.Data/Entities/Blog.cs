@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     [Table("Blogs")]
     public class Blog : DomainEntity<int>, ISwitchable, IDateTracking, IHasSeoMetaData
     {
+       
         public Blog() { }
         public Blog(string name,string thumbnailImage,
            string description, string content, bool? homeFlag, bool? hotFlag,

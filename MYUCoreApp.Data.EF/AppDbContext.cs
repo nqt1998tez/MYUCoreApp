@@ -7,7 +7,7 @@ using MYUCoreApp.Data.EF.Extensions;
 using MYUCoreApp.Data.Interfaces;
 using System;
 using System.Linq;
-using TeduCoreApp.Data.Entities;
+using MYUCoreApp.Data.Entities;
 
 namespace MYUCoreApp.Data.EF
 {

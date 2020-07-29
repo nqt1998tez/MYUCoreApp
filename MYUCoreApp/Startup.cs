@@ -1,17 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MYUCoreApp.Aplication.AutoMapper;
+using MYUCoreApp.Aplication.Implementation;
+using MYUCoreApp.Aplication.Interfaces;
 using MYUCoreApp.Data.EF;
-using TeduCoreApp.Data.Entities;
+using MYUCoreApp.Data.EF.Repositories;
+using MYUCoreApp.Data.Entities;
+using MYUCoreApp.Data.IRepositories;
 
 namespace MYUCoreApp
 {
@@ -25,7 +26,7 @@ namespace MYUCoreApp
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, Mapper mapper)
         {
             services.AddDbContext<AppDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MYUCoreApp"),
@@ -34,12 +35,17 @@ namespace MYUCoreApp
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
             services.AddControllersWithViews();
+            services.AddTransient<DbInitializer>();
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddSingleton(mapper.ConfigurationProvider);
+            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+            services.AddTransient<IProductCategoryService, ProductCategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,DbInitializer dbInitializer)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {

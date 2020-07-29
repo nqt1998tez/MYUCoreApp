@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduCoreApp.Data.Entities
+namespace MYUCoreApp.Data.Entities
 {
     [Table("Products")]
     public class Product : DomainEntity<int>, ISwitchable, IDateTracking, IHasSeoMetaData
