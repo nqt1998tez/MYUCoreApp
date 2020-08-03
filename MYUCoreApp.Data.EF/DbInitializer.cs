@@ -174,7 +174,7 @@ namespace MYUCoreApp.Data.EF
                     new Slide() {Name="Slide 11",Image="/client-side/images/brand11.png",Url="#",DisplayOrder = 11,GroupAlias = "brand",Status = true },
                 };
                 _context.Slides.AddRange(slides);
-            }
+            }   
 
 
             if (_context.Sizes.Count() == 0)

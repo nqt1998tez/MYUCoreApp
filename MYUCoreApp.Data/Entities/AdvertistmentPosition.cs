@@ -16,9 +16,8 @@ namespace MYUCoreApp.Data.Entities
         [StringLength(250)]
         public string Name { get; set; }
 
-        [ForeignKey("PageId")]
-        public virtual AdvertistmentPage AdvertistmentPage { get; set; }
+        public  AdvertistmentPage AdvertistmentPage { get; set; }
 
-        public virtual ICollection<Advertistment> Advertistments { get; set; }
+        public  ICollection<Advertistment> Advertistments { get; set; }
     }
 }

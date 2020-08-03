@@ -47,27 +47,31 @@ namespace MYUCoreApp.Data.EF
         protected override void OnModelCreating(ModelBuilder builder)
         {
             #region Identity Config
-            builder.Entity<IdentityUserClaim<string>>().ToTable("AppUserClaim").HasKey(x => x.Id);
-            builder.Entity<IdentityRoleClaim<string>>().ToTable("AppRoleClaims").HasKey(x => x.Id);
-            builder.Entity<IdentityUserLogin<string>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
-            builder.Entity<IdentityUserRole<string>>().ToTable("AppUserRoles")
+            builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaim").HasKey(x => x.Id);
+            builder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims").HasKey(x => x.Id);
+            builder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
+            builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
                         .HasKey(x => new { x.UserId, x.RoleId });
-            builder.Entity<IdentityUserToken<string>>().ToTable("AppUserToken")
+            builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserToken")
                 .HasKey(x => new { x.UserId });
             #endregion Identity Config
-            builder.AddConfiguration(new TagConfiguration());
-            builder.AddConfiguration(new BlogTagConfiguration());
-            builder.AddConfiguration(new ContactDetailConfiguration());
-
-            builder.AddConfiguration(new FooterConfiguration());
-            builder.AddConfiguration(new SystemConfiguration());
-            builder.AddConfiguration(new AdvertistmentPositionConfiguration());
-
-            builder.AddConfiguration(new PageConfiguration());
-            builder.AddConfiguration(new FunctionConfiguration());
-            builder.AddConfiguration(new ProductTagConfiguration());
-
-            base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new TagConfiguration());
+            builder.ApplyConfiguration(new SystemConfiguration());
+            builder.ApplyConfiguration(new ProductTagConfiguration());
+            builder.ApplyConfiguration(new PageConfiguration());
+            builder.ApplyConfiguration(new FunctionConfiguration());
+            builder.ApplyConfiguration(new FooterConfiguration());
+            builder.ApplyConfiguration(new ContactDetailConfiguration());
+            builder.ApplyConfiguration(new BlogTagConfiguration());
+            builder.ApplyConfiguration(new AnnouncementUserConfiguration());
+            builder.ApplyConfiguration(new AdvertistmentPositionConfiguration());
+            builder.ApplyConfiguration(new AdvertistmentConfiguration());
+            builder.ApplyConfiguration(new AdvertistmentPageConfiguration());
+            builder.ApplyConfiguration(new AnnouncementConfiguration());
+            builder.ApplyConfiguration(new ProductCategoryConfiguration());
+            builder.ApplyConfiguration(new ProductConfiguration());
+            builder.Seed();
+            //base.OnModelCreating(builder);
         }
         public override int SaveChanges()
         {

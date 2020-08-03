@@ -30,7 +30,6 @@ namespace MYUCoreApp.Data.Entities
         public DateTime DateModified { set; get; }
         public int SortOrder { set; get; }
 
-        [ForeignKey("PositionId")]
-        public virtual AdvertistmentPosition AdvertistmentPosition { get; set; }
+        public  AdvertistmentPosition AdvertistmentPosition { get; set; }
     }
 }

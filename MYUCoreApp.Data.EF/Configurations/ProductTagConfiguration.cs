@@ -1,16 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MYUCoreApp.Data.Entities;
-using static MYUCoreApp.Data.EF.Extensions.ModelBuilderExtensions;
 
 namespace MYUCoreApp.Data.EF.Configurations
 {
-    public class ProductTagConfiguration : DbEntityConfiguration<ProductTag>
+    public class ProductTagConfiguration : IEntityTypeConfiguration<ProductTag>
     {
-        public override void Configure(EntityTypeBuilder<ProductTag> entity)
+        public void Configure(EntityTypeBuilder<ProductTag> builder)
         {
+            builder.Property(c => c.TagId).HasMaxLength(50).IsRequired()
+                   .HasMaxLength(50).IsUnicode(false);
         }
     }
 }

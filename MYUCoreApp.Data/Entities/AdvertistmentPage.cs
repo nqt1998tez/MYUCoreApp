@@ -11,6 +11,6 @@ namespace MYUCoreApp.Data.Entities
     {
         public string Name { get; set; }
 
-        public virtual ICollection<AdvertistmentPosition> AdvertistmentPositions { get; set; }
+        public ICollection<AdvertistmentPosition> AdvertistmentPositions { get; set; }
     }
 }

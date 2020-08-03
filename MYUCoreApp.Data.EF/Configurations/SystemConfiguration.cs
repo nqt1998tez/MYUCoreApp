@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Text;
 using MYUCoreApp.Data.Entities;
 using static MYUCoreApp.Data.EF.Extensions.ModelBuilderExtensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace MYUCoreApp.Data.EF.Configurations
 {
-    public class SystemConfiguration : DbEntityConfiguration<SystemConfig>
+    public class SystemConfiguration : IEntityTypeConfiguration<SystemConfig>
     {
-        public override void Configure(EntityTypeBuilder<SystemConfig> entity)
+        public void Configure(EntityTypeBuilder<SystemConfig> entity)
         {
-            entity.Property(c=>c.Id).HasMaxLength(255).IsRequired();
+            entity.Property(c => c.Id).HasMaxLength(255).IsRequired();
         }
     }
 }

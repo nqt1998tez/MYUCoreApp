@@ -2,13 +2,13 @@
 using AutoMapper.QueryableExtensions;
 using MYUCoreApp.Aplication.Interfaces;
 using MYUCoreApp.Aplication.ViewModels.Product;
+using MYUCoreApp.Data.Entities;
 using MYUCoreApp.Data.Enums;
 using MYUCoreApp.Data.IRepositories;
 using MYUCoreApp.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MYUCoreApp.Data.Entities;
 
 namespace MYUCoreApp.Aplication.Implementation
 {
@@ -16,18 +16,16 @@ namespace MYUCoreApp.Aplication.Implementation
     {
         private IProductCategoryRepository _productCategoryRepository;
         private IUnitOfWork _unitOfWork;
-        private Mapper _mapper;
-
         public ProductCategoryService(IProductCategoryRepository productCategoryRepository,
-                                      IUnitOfWork unitOfWork, Mapper mapper)
+                                      IUnitOfWork unitOfWork)
         {
             this._productCategoryRepository = productCategoryRepository;
             this._unitOfWork = unitOfWork;
-            this._mapper = mapper;
         }
+        Mapper mapper;
         public ProductCategoryViewModel Add(ProductCategoryViewModel productCategoryViewModel)
         {
-            var productCategory = this._mapper.Map<ProductCategoryViewModel, ProductCategory>(productCategoryViewModel);
+            var productCategory = mapper.Map<ProductCategoryViewModel, ProductCategory>(productCategoryViewModel);
             _productCategoryRepository.Add(productCategory);
             return productCategoryViewModel;
         }
@@ -40,8 +38,8 @@ namespace MYUCoreApp.Aplication.Implementation
         public List<ProductCategoryViewModel> GetAll()
         {
             return _productCategoryRepository.FindAll().OrderBy(x => x.ParentId)
-                    .ProjectTo<ProductCategoryViewModel>(this._mapper.ConfigurationProvider).ToList();
-                
+                    .ProjectTo<ProductCategoryViewModel>(mapper.ConfigurationProvider).ToList();
+
         }
 
         public List<ProductCategoryViewModel> GetAll(string keyword)
@@ -50,13 +48,13 @@ namespace MYUCoreApp.Aplication.Implementation
             {
                 return _productCategoryRepository.FindAll(x => x.Name.Contains(keyword) || x.Description.Contains(keyword))
                     .OrderBy(x => x.ParentId)
-                    .ProjectTo<ProductCategoryViewModel>(this._mapper.ConfigurationProvider)
+                    .ProjectTo<ProductCategoryViewModel>(mapper.ConfigurationProvider)
                     .ToList();
             }
             else
             {
                 return _productCategoryRepository.FindAll().OrderBy(x => x.ParentId)
-                    .ProjectTo<ProductCategoryViewModel>(this._mapper.ConfigurationProvider)
+                    .ProjectTo<ProductCategoryViewModel>(mapper.ConfigurationProvider)
                     .ToList();
             }
         }
@@ -64,21 +62,21 @@ namespace MYUCoreApp.Aplication.Implementation
         public List<ProductCategoryViewModel> GetAllByParentId(int parentId)
         {
             return _productCategoryRepository.FindAll(x => x.Status == Status.Active && x.ParentId == parentId)
-                .ProjectTo<ProductCategoryViewModel>(this._mapper.ConfigurationProvider)
+                .ProjectTo<ProductCategoryViewModel>(mapper.ConfigurationProvider)
                 .ToList();
 
         }
 
         public ProductCategoryViewModel GetById(int id)
         {
-            return this._mapper.Map<ProductCategory, ProductCategoryViewModel>(_productCategoryRepository.FindById(id));
+            return mapper.Map<ProductCategory, ProductCategoryViewModel>(_productCategoryRepository.FindById(id));
         }
 
         public List<ProductCategoryViewModel> GetHomeCategories(int top)
         {
-            var query = _productCategoryRepository.FindAll(x => x.HomeFlag == true,c=>c.Products)
+            var query = _productCategoryRepository.FindAll(x => x.HomeFlag == true, c => c.Products)
                                                  .OrderBy(x => x.HomeOrder).Take(top)
-                                                 .ProjectTo<ProductCategoryViewModel>(this._mapper.ConfigurationProvider);
+                                                 .ProjectTo<ProductCategoryViewModel>(mapper.ConfigurationProvider);
             var categories = query.ToList();
             foreach (var category in categories)
             {
@@ -86,7 +84,7 @@ namespace MYUCoreApp.Aplication.Implementation
                 //    .FindAll(x=>x.HomeFlag == true &&  x.Cate)
             }
             return categories;
-                                                 
+
         }
 
         public void ReOrder(int sourceID, int targetId)
