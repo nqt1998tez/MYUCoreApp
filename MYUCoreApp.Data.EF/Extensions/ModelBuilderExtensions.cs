@@ -200,7 +200,7 @@ namespace MYUCoreApp.Data.EF.Extensions
                         SeoAlias="men-shirt",
                         ParentId = null,
                         Status=Status.Active,
-                        SortOrder=1 
+                        SortOrder=1
                     },
                     new ProductCategory()
                     {
@@ -218,7 +218,7 @@ namespace MYUCoreApp.Data.EF.Extensions
                         SeoAlias="men-shoes",
                         ParentId = null,
                         Status=Status.Active ,
-                        SortOrder=3 
+                        SortOrder=3
                     },
                     new ProductCategory()
                     {
@@ -227,15 +227,15 @@ namespace MYUCoreApp.Data.EF.Extensions
                         SeoAlias="women-shoes",
                         ParentId = null,
                         Status=Status.Active,
-                        SortOrder=4 
+                        SortOrder=4
                     },
                 });
             modelBuilder.Entity<Product>().HasData(
-                    new Product(){CategoryId=1,Id=1,Name = "Product 1",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-1",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    new Product(){CategoryId=1,Id=2,Name = "Product 2",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-2",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    new Product(){CategoryId=1,Id=3,Name = "Product 3",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-3",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    new Product(){CategoryId=1,Id=4,Name = "Product 4",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-4",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    new Product(){CategoryId=1,Id=5,Name = "Product 5",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-5",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
+                    new Product() { CategoryId = 1, Id = 1, Name = "Product 1", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-1", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                    new Product() { CategoryId = 1, Id = 2, Name = "Product 2", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-2", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                    new Product() { CategoryId = 1, Id = 3, Name = "Product 3", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-3", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                    new Product() { CategoryId = 1, Id = 4, Name = "Product 4", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-4", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                    new Product() { CategoryId = 1, Id = 5, Name = "Product 5", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-5", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
                     new Product() { CategoryId = 2, Id = 6, Name = "Product 6", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-6", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
                     new Product() { CategoryId = 2, Id = 7, Name = "Product 7", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-7", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
                     new Product() { CategoryId = 2, Id = 8, Name = "Product 8", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-8", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
@@ -250,7 +250,7 @@ namespace MYUCoreApp.Data.EF.Extensions
                     new Product() { CategoryId = 4, Id = 17, Name = "Product 17", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-17", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
                     new Product() { CategoryId = 4, Id = 18, Name = "Product 18", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-18", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
                     new Product() { CategoryId = 4, Id = 19, Name = "Product 19", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-19", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
-                    new Product(){CategoryId=4,Id=20,Name = "Product 20",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-20",Price = 1000,Status = Status.Active,OriginalPrice = 1000}
+                    new Product() { CategoryId = 4, Id = 20, Name = "Product 20", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-20", Price = 1000, Status = Status.Active, OriginalPrice = 1000 }
                 );
             #endregion
             #region SeedData SystemConfig

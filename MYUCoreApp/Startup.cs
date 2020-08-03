@@ -14,12 +14,12 @@ using MYUCoreApp.Data.EF.Repositories;
 using MYUCoreApp.Data.Entities;
 using MYUCoreApp.Data.IRepositories;
 using MYUCoreApp.Infrastructure.Interfaces;
-
 namespace MYUCoreApp
 {
     public class Startup
     {
         public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,7 +27,6 @@ namespace MYUCoreApp
 
         public AutoMapper.IConfigurationProvider configurationProvider { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
@@ -45,6 +44,7 @@ namespace MYUCoreApp
                 mc.AddProfile(new DomainToViewModelMappingProfile());
                 mc.AddProfile(new ViewModelToDomainMappingProfile());
             });
+
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
             //services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
@@ -53,7 +53,6 @@ namespace MYUCoreApp
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -68,11 +67,8 @@ namespace MYUCoreApp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -83,7 +79,7 @@ namespace MYUCoreApp
                     areaName: "Admin",
                     pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
                );
-              
+
             });
         }
     }
