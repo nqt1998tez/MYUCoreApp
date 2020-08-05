@@ -7,7 +7,9 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0-preview.7.20364.11" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +22,8 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\lib\notifyjs\.git\objects\info\" />
+    <Folder Include="wwwroot\lib\notifyjs\.git\refs\tags\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +37,31 @@
     <None Include="wwwroot\lib\Chart.js\.github\ISSUE_TEMPLATE.md" />
     <None Include="wwwroot\lib\Chart.js\.github\PULL_REQUEST_TEMPLATE.md" />
     <None Include="wwwroot\lib\Flot\.circleci\config.yml" />
+    <None Include="wwwroot\lib\notifyjs\.git\config" />
+    <None Include="wwwroot\lib\notifyjs\.git\description" />
+    <None Include="wwwroot\lib\notifyjs\.git\HEAD" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\applypatch-msg.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\commit-msg.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\fsmonitor-watchman.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\post-update.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\pre-applypatch.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\pre-commit.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\pre-merge-commit.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\pre-push.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\pre-rebase.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\pre-receive.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\hooks\update.sample" />
+    <None Include="wwwroot\lib\notifyjs\.git\index" />
+    <None Include="wwwroot\lib\notifyjs\.git\info\exclude" />
+    <None Include="wwwroot\lib\notifyjs\.git\logs\HEAD" />
+    <None Include="wwwroot\lib\notifyjs\.git\logs\refs\heads\master" />
+    <None Include="wwwroot\lib\notifyjs\.git\logs\refs\remotes\origin\HEAD" />
+    <None Include="wwwroot\lib\notifyjs\.git\objects\pack\pack-3e81b12384a2a4db53562a9cd4e1037b02140f1d.idx" />
+    <None Include="wwwroot\lib\notifyjs\.git\objects\pack\pack-3e81b12384a2a4db53562a9cd4e1037b02140f1d.pack" />
+    <None Include="wwwroot\lib\notifyjs\.git\packed-refs" />
+    <None Include="wwwroot\lib\notifyjs\.git\refs\heads\master" />
+    <None Include="wwwroot\lib\notifyjs\.git\refs\remotes\origin\HEAD" />
   </ItemGroup>
 
 </Project>

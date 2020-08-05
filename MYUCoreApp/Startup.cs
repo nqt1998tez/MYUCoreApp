@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using MYUCoreApp.Aplication.AutoMapper;
 using MYUCoreApp.Aplication.Implementation;
 using MYUCoreApp.Aplication.Interfaces;
@@ -14,6 +15,8 @@ using MYUCoreApp.Data.EF.Repositories;
 using MYUCoreApp.Data.Entities;
 using MYUCoreApp.Data.IRepositories;
 using MYUCoreApp.Infrastructure.Interfaces;
+using System;
+
 namespace MYUCoreApp
 {
     public class Startup
@@ -29,14 +32,28 @@ namespace MYUCoreApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<IdentityOptions>(options => {
+
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+
+
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+
+                options.User.RequireUniqueEmail = true;
+            });
+
             services.AddDbContext<AppDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MYUCoreApp"),
+                    options.UseSqlServer(Configuration.GetConnectionString("AppDbContextDb"),
                     o => o.MigrationsAssembly("MYUCoreApp.Data.EF")));
             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
             services.AddControllersWithViews();
-            services.AddTransient<DbInitializer>();
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
             var mappingConfig = new MapperConfiguration(mc =>
@@ -53,8 +70,9 @@ namespace MYUCoreApp
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddFile("Logs/myu-{Date}.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -74,11 +92,17 @@ namespace MYUCoreApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            //    endpoints.MapAreaControllerRoute(
+            //        name: "areas",
+            //        areaName: "Admin",
+            //        pattern: "Admin/{controller=Login}/{action=Index}/{id?}"
+            //);
                 endpoints.MapAreaControllerRoute(
                     name: "areas",
                     areaName: "Admin",
                     pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
                );
+         
 
             });
         }
